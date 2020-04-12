@@ -1,0 +1,23 @@
+:host{
+    display: block;
+    margin-top: 1rem;
+    width: 83%;
+    position: relative;
+    left: 86px;
+}
+table {
+    width: 100%;
+  }
+  .h{
+      text-align: center;
+  }
+  #b1{
+      margin-right: 10px;
+  }
+mat-paginator{
+    margin-top: 1rem;
+}
+mat-spinner{
+    margin: auto;
+    width: 5px;
+}

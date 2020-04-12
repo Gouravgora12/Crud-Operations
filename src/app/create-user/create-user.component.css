@@ -1,0 +1,30 @@
+mat-card{
+    top: 10px;
+    width: 50%;
+    margin: auto;
+}
+mat-form-field{
+    width: 100%;
+}
+mat-spinner{
+    margin: auto;
+}
+#b1{
+    left: 38%
+}
+.example-container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+  
+  .example-right-align {
+    text-align: right;
+  }
+  
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  input.example-right-align {
+    -moz-appearance: textfield;
+  }

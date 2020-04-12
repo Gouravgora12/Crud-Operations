@@ -1,0 +1,38 @@
+<mat-spinner *ngIf="isloading"></mat-spinner>
+<table mat-table [dataSource]="Users" *ngIf="Users.length > 0 && !isloading" class="mat-elevation-z8">
+    <ng-container matColumnDef="fullName">
+      <th class="h"mat-header-cell *matHeaderCellDef> FullName </th>
+      <td class="h" mat-cell *matCellDef="let element"> {{element.fullName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="city">
+      <th class="h" mat-header-cell *matHeaderCellDef> City </th>
+      <td class="h" mat-cell *matCellDef="let element"> {{element.city}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="email">
+      <th class="h" mat-header-cell *matHeaderCellDef> Email </th>
+      <td  class="h" mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="phoneNumber">
+      <th class="h" mat-header-cell *matHeaderCellDef> Phone Number </th>
+      <td class="h" mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
+    </ng-container>
+    <ng-container matColumnDef="_id">
+        <th class="h" mat-header-cell *matHeaderCellDef> Action </th>
+        <td class="h" mat-cell *matCellDef="let element">
+            <a id="b1"  mat-raised-button color="primary" [routerLink]="['/edit',element._id]" type="submit">Edit</a>
+            <button  mat-raised-button color="warn" (click)="deleteRequest(element._id)">Delete</button>
+        </td>
+      </ng-container>
+    <tr mat-header-row *matHeaderRowDef="tableHeader"></tr>
+    <tr mat-row *matRowDef="let row; columns: tableHeader;"></tr>
+  </table>
+  
+    <mat-paginator [length]="totalPeople"
+    [pageSize]="usersPerPage"
+    [pageSizeOptions]="pageSizeOptions" (page)=onChangedPage($event) *ngIf="Users.length > 0">
+</mat-paginator>
+
+<p class="info-text mat-body1-1" *ngIf= "Users.length <= 0  && !isloading ">No Person Added Yet !</p>

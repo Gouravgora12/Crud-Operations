@@ -1,0 +1,26 @@
+<mat-card>
+  <mat-spinner *ngIf="isloading"></mat-spinner>
+    <form [formGroup]='form' (submit)="onEditUser()" *ngIf="!isloading"> 
+      <mat-form-field appearance="outline">
+        <mat-label>Full Name</mat-label>
+        <input matInput type="text" formControlName="fullName" placeholder="Full Name">
+        <mat-error *ngIf="form.get('fullName').invalid">Please Eneter Valid a Name</mat-error>
+      </mat-form-field>
+      <mat-form-field  appearance="outline">
+        <mat-label>City</mat-label>
+        <input matInput formControlName="city" placeholder="City">
+        <mat-error *ngIf="form.get('phNumber').invalid">Please Eneter a Valid City</mat-error>
+      </mat-form-field>
+      <mat-form-field  appearance="outline">
+        <mat-label>Phone Number</mat-label>
+        <input matInput formControlName="phNumber" placeholder="Phone Number">
+        <mat-error *ngIf="form.get('phNumber').invalid">Please Eneter a Valid Phone Number</mat-error>
+      </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput  formControlName="email"placeholder="Email">
+          <mat-error *ngIf="form.get('email').invalid">Please Eneter a Valid Email Address</mat-error>
+        </mat-form-field>
+        <button id="b1"mat-raised-button color="primary"type="submit">Update Person</button>
+    </form>
+    </mat-card>

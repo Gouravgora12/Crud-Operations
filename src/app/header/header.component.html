@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+  <a mat-button routerLink="/">Person List</a>
+  <div>
+    <input id="search" type="text"[(ngModel)]="value" placeholder="Search.." name="search">
+    <button  mat-flat-button color="primary" (click)="find()">Search</button>
+  </div>
+      <span class="space"></span>
+      <ul>
+        <li *ngIf="!userIsAuthenticated"><a mat-button routerLink="/login" routerLinkActive='mat-accent'>Login</a></li>
+        <li *ngIf="!userIsAuthenticated"><a mat-button routerLink="/create" routerLinkActive='mat-accent'>SignUp</a></li>
+        <li *ngIf="userIsAuthenticated"><button mat-button (click)="onLogout()">Logout</button></li>
+      </ul>
+    </mat-toolbar>
+   <mat-card *ngIf="idResult">
+    <ul *ngFor="let item of idResult | keyvalue">
+      <li>{{item.key |uppercase}} : {{item.value}}</li>
+    </ul>
+   </mat-card>
