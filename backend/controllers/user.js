@@ -24,7 +24,6 @@ exports.createUser = (req, res, next) => {
 }
 exports.userLogin = (req, res, next) => {
   let fetchedUser;
-  console.log("User", req.body.email)
   User.findOne({
     email: req.body.email
   }).then((user) => {
@@ -109,8 +108,7 @@ exports.getSingleUser = (req, res, next) => {
 exports.updatePersonDetail = (req, res, next) => {
   const user = new User({
     _id: req.params.userId,
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
+    fullName: req.body.fullName,
     phoneNumber: req.body.phoneNumber,
     email: req.body.email
   });
